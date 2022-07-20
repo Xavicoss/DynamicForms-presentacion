@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup';
 
-import { MySelect, MyTextInput } from '../components';
+import { MyCheckbox, MySelect, MyTextArea, MyTextInput } from '../components';
 import formJson from '../data/custom-form.json'
 
 console.log(formJson);
@@ -27,7 +27,6 @@ for ( const input of formJson ) {
         if( rule.type === 'maxLength' ) {
             schema = schema.max( (rule as any).value || 15, `Maximo de ${(rule as any).value || 15} caracteres`);
         }
-
         if( rule.type === 'email' ) {
             schema = schema.email('No corresponde a un formato de email');
         }
@@ -65,7 +64,14 @@ export const DynamicForm = () => {
                                         name={ name } 
                                         label={ label } 
                                         placeholder={ placeholder } />
-                        } else if ( type === "select" ) {
+                        } else if ( type === "area") {
+                            <MyTextArea 
+                                key={ name }
+                                label={ label }
+                                name={ name }
+                            />
+                        }
+                        else if ( type === "select" ) {
                             
                             return <MySelect 
                                         key={ name }
@@ -79,6 +85,13 @@ export const DynamicForm = () => {
                                             })
                                         }
                                     </MySelect>
+                        } else if ( type === "checkbox") {
+                            return <MyCheckbox
+                                key={ name }
+                                label= { label }
+                                name = { name }
+                            />
+
                         }
 
                         throw new Error(`El type: ${ type }, no es valido `);

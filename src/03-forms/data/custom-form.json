@@ -2,7 +2,7 @@
     {
         "type": "input",
         "name": "firstName",
-        "placeholder": "Xavier",
+        "placeholder": "Nombres",
         "label": "First Name",
         "value": "",
         "validations": [
@@ -18,9 +18,15 @@
         ]
     },
     {
+        "type": "area",
+        "name": "Motivo",
+        "label": "Motivo de la consulta",
+        "value": ""
+    },
+    {
         "type": "input",
         "name": "lastName",
-        "placeholder": "Macancela",
+        "placeholder": "Apellidos",
         "label": "Last Name",
         "value": "",
         "validations": [
@@ -46,23 +52,30 @@
     },
     {
         "type": "select",
-        "name": "favoriteGame",
-        "label": "Favorite Game",
+        "name": "sexo",
+        "label": "Sexo",
         "value": "",
         "options": [
             { 
                 "id": 1, 
-                "label": "Super Smash"
+                "label": "Masculino"
             }, 
             { 
                 "id": 2 , 
-                "label":  "Metal Gear"
-            }, 
-            { 
-                "id": 3, 
-                "label": "Resident Evil"
+                "label":  "Femenino"
             }
         ],
+        "validations": [
+            {
+                "type": "required"
+            }
+        ]
+    },
+    {
+        "type": "checkbox",
+        "name": "enfermedades",
+        "label": "enfermedades",
+        "value": "",
         "validations": [
             {
                 "type": "required"
